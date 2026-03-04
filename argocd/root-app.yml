@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/sol-aws/eks-msa.git
+    repoURL: https://github.com/WoojuHwww/eks-solo-project
     targetRevision: main
     path: argocd/apps
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namesspace: argocd
   syncPolicy:
     automated:
       prune: true
