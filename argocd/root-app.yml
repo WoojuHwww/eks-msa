@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/WoojuHwww/eks-solo-project
+    repoURL: https://github.com/WoojuHwww/eks-msa
     targetRevision: main
     path: argocd/apps
   destination:
@@ -14,5 +14,5 @@ spec:
     namesspace: argocd
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: true                       #동기화
+      selfHeal: true                    #GIT이랑 동기화
