@@ -89,7 +89,7 @@ jobs:
       - name: gateway build and push docker image to ecr
         if: steps.changes.outputs.gateway == 'true'
         env:         
-          REGISTRY: 398875891485.dkr.ecr.ap-northeast-2.amazonaws.com
+          REGISTRY: 398875891485.dkr.ecr.ap-northeast-2.amazonaws.com 
           REPOSITORY: apigateway
           IMAGE_TAG: latest
         run: |
