@@ -160,7 +160,7 @@ spec:
               memory: 600Mi
           command:
             - ./cluster-autoscaler
-            - --cluster-name=my-cluster-woo
+            - --cluster-name=dev-my-cluster-woo
             - --v=4
             - --stderrthreshold=info
             - --cloud-provider=aws
