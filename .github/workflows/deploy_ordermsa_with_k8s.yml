@@ -98,11 +98,11 @@ jobs:
             -f ./msa/apigateway/Dockerfile ./msa/apigateway
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-      # - name: deploy gateway
-      #   if: steps.changes.outputs.gateway == 'true'
-      #   run: |
-      #     kubectl apply -f ./msa/apigateway/k8s/depl_svc.yml
-      #     kubectl rollout restart deployment apigateway-depl -n soldesk
+       - name: deploy gateway
+         if: steps.changes.outputs.gateway == 'true'
+         run: |
+           kubectl apply -f ./msa/apigateway/k8s/depl_svc.yml
+           kubectl rollout restart deployment apigateway-depl -n soldesk
 
 
       # Member 빌드
@@ -118,11 +118,11 @@ jobs:
             -f ./msa/member/Dockerfile ./msa/member
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-      # - name: deploy member
-      #   if: steps.changes.outputs.member == 'true'
-      #   run: |
-      #     kubectl apply -f ./msa/member/k8s/depl_svc.yml
-      #     kubectl rollout restart deployment member-depl -n soldesk
+       - name: deploy member
+         if: steps.changes.outputs.member == 'true'
+         run: |
+           kubectl apply -f ./msa/member/k8s/depl_svc.yml
+           kubectl rollout restart deployment member-depl -n soldesk
 
 
       # Ordering 빌드
@@ -138,11 +138,11 @@ jobs:
             -f ./msa/ordering/Dockerfile ./msa/ordering
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-      # - name: deploy ordering
-      #   if: steps.changes.outputs.ordering == 'true'
-      #   run: | 
-      #     kubectl apply -f ./msa/ordering/k8s/depl_svc.yml
-      #     kubectl rollout restart deployment ordering-depl -n soldesk
+       - name: deploy ordering
+         if: steps.changes.outputs.ordering == 'true'
+         run: | 
+           kubectl apply -f ./msa/ordering/k8s/depl_svc.yml
+           kubectl rollout restart deployment ordering-depl -n soldesk
 
 
       # Product 빌드
@@ -158,8 +158,8 @@ jobs:
             -f ./msa/product/Dockerfile ./msa/product
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
-      # - name: deploy product
-      #   if: steps.changes.outputs.product == 'true'
-      #   run: |
-      #     kubectl apply -f ./msa/product/k8s/depl_svc.yml
-      #     kubectl rollout restart deployment product-depl -n soldesk
+       - name: deploy product
+         if: steps.changes.outputs.product == 'true'
+         run: |
+           kubectl apply -f ./msa/product/k8s/depl_svc.yml
+           kubectl rollout restart deployment product-depl -n soldesk
